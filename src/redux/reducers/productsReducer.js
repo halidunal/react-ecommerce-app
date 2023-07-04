@@ -5,6 +5,11 @@ export const productsReducer = (state = {products: [], product: {}}, action) => 
                 ...state,
                 products: action.payload
             }
+        case "GET_PRODUCT":
+            return{
+                ...state,
+                product: action.payload
+            }
         default:
             return state;
     }
