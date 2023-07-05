@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { getProduct } from '../redux/actions/productsActions';
-import { AiOutlineHeart, AiOutlineStar, AiOutlineTag, AiOutlineClockCircle } from 'react-icons/ai';
+import { addToCart } from '../redux/actions/cartActions';
+
+import { AiOutlineHeart, AiOutlineTag, AiOutlineClockCircle } from 'react-icons/ai';
 import { FaMinus, FaPlus, FaTruck } from 'react-icons/fa';
 import Stars from '../components/Stars';
 
@@ -11,7 +13,7 @@ const Detail = () => {
   const dispatch = useDispatch();
   const {product} = useSelector(state => state.products)
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const decrement = () => {
     count > 0 && setCount(count-1)
@@ -20,13 +22,19 @@ const Detail = () => {
     count < 10 && setCount(count+1)
   }
 
+  const add = () => {
+    dispatch(addToCart(id, count))
+  }
+
   useEffect(()=>{
     dispatch(getProduct(id))
   },[dispatch])
 
   return (
     <div className='w-full flex justify-center space-x-10 mt-10'>
-      <img className="w-1/4 object-cover" src={product?.image} alt={product?.title}/>
+      <div className='w-1/4 border rounded-lg p-3'>
+        <img className="object-cover rounded-lg" src={product?.image} alt={product?.title}/>
+      </div>
       <div className='w-3/4 space-y-4'>
         <div className='font-bold text-2xl'>{product?.title}</div>
         <div className='opacity-80 flex items-center space-x-1'>
@@ -47,7 +55,7 @@ const Detail = () => {
             <span className='text-2xl font-bold border rounded-full w-20 text-center'>{count}</span>
             <FaPlus onClick={increment} className='cursor-pointer border rounded-full p-2' size={35}/>
           </div>
-          <button className='p-3 w-full bg-green-500 rounded-lg text-white text-lg'>Add to Cart</button>
+          <button onClick={add} className='p-3 w-full bg-green-500 rounded-lg text-white text-lg'>Add to Cart</button>
           <AiOutlineHeart title="Add to favorites" className='cursor-pointer p-3 w-20 bg-gray-400 rounded-lg text-white text-lg' size={55}/>
         </div>
       </div>
