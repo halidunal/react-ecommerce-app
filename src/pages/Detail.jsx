@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { getProduct } from '../redux/actions/productsActions';
 import { AiOutlineHeart, AiOutlineStar, AiOutlineTag, AiOutlineClockCircle } from 'react-icons/ai';
 import { FaMinus, FaPlus, FaTruck } from 'react-icons/fa';
+import Stars from '../components/Stars';
 
 const Detail = () => {
   const {id} = useParams();
@@ -28,9 +29,13 @@ const Detail = () => {
       <img className="w-1/4 object-cover" src={product?.image} alt={product?.title}/>
       <div className='w-3/4 space-y-4'>
         <div className='font-bold text-2xl'>{product?.title}</div>
+        <div className='opacity-80 flex items-center space-x-1'>
+          <span className='font-bold'>{product?.rating?.rate}</span>
+          <Stars rate={product?.rating?.rate} className='mr-2'/>
+          <span>({product?.rating?.count})</span>
+        </div>
         <div className='opacity-80 text-sm border-b-2 pb-2'>Product Code: {product?.id}</div>
         <div className=''>{product?.description}</div>
-        <div className='opacity-80 flex items-center'><AiOutlineStar className='mr-2'/> {product?.rating?.rate}/5 ({product?.rating?.count})</div>
         {/* <div className='opacity-80'>{ !product.stock ? <span>Out of stock</span> : product.stock > 1 ? <span>Last {product?.stock} items in stock</span> : <span>Last item in stock</span> }</div> */}
         <div className='opacity-80 flex items-center'><AiOutlineTag className='mr-2'/>{product?.category}</div>
         <div className='opacity-80 flex items-center'><AiOutlineClockCircle className='mr-2'/>Ships in 1 day</div>

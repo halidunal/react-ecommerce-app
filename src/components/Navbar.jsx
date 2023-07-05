@@ -19,7 +19,7 @@ const Navbar = () => {
   },[darkTheme])
   return (
     <div className='flex items-center justify-between px-3 h-24'>
-      <div className='text-2xl font-bold tracking-wider'>React Ecommerce</div>
+      <div className='text-2xl font-bold tracking-wider'>React E-commerce</div>
       <div className='flex items-center space-x-4'>
         <input className='border p-3 outline-none rounded-lg text-black' placeholder='Search'></input>
         <div onClick={() => setDarkTheme(!darkTheme)}>
