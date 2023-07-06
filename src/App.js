@@ -22,10 +22,9 @@ function App() {
             <Route path="detail/:id" element={<Detail/>}/>
           </Routes>
           {drawer && <Cart/>}
-          <Footer/>
         </BrowserRouter>        
       </PageContainer>
-
+      <Footer/>
     </div>
   );
 }

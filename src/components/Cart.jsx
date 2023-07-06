@@ -12,7 +12,7 @@ const Cart = () => {
   }
 
   return (
-    <div className='w-1/3 h-full border fixed top-0 right-0 z-50 bg-white p-3 pt-4'>
+    <div className='w-1/3 h-full border fixed top-0 right-0 z-50 bg-white opacity-90 p-3 pt-4'>
       <div className='flex items-center h-20 justify-between border-b-2'>
         <h1 className='text-2xl ml-2'>Cart</h1>
         <AiOutlineClose size={25} className='cursor-pointer' onClick={() => dispatch({type: 'DRAWER', payload: false})}/>
@@ -20,7 +20,7 @@ const Cart = () => {
       {
         cartItems?.map((product,key) => (
           <div key={key} className='h-28 flex items-center justify-between p-4 mt-5 space-x-2'>
-            <img className='h-24 w-24 object-cover' src={product?.image} alt={product?.title}/>
+            <img className='h-24 w-24 object-scale-down' src={product?.image} alt={product?.title}/>
             <div className='w-44'>
               <div className='font-bold text-sm'>{(product?.title).substring(0,40)}...</div>
               <div className='opacity-80 text-xs'>{product?.description.substring(0,45)}...</div>
