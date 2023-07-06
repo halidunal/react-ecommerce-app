@@ -11,7 +11,7 @@ const Home = () => {
     },[dispatch])
 
     return (
-    <div className='flex flex-wrap justify-center'>
+    <div className='flex flex-wrap justify-center mt-10'>
         {
             products && products.map((product, key) => (
                 <Product key={key} product={product}/>

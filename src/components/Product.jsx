@@ -12,7 +12,7 @@ const Product = ({product}) => {
  
   return (
     <div 
-        className='hover:border-gray-400  hover:scale-105 w-1/5 h-[400px] p-2 border rounded-lg m-2 space-y-2 cursor-pointer'
+        className='hover:border-gray-400  hover:scale-105 w-1/5 h-[400px] p-3 border rounded-lg m-2 space-y-2 cursor-pointer'
     >   
       <div className='flex flex-col items-center space-y-2' onClick={()=> window.location = `detail/${product.id}`}>
         <img className='h-32 object-cover mt-2' src={product?.image} alt={product?.title} />

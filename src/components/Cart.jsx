@@ -12,7 +12,7 @@ const Cart = () => {
   }
 
   return (
-    <div className='w-1/3 h-full border fixed top-0 right-0 z-50 bg-white p-3'>
+    <div className='w-1/3 h-full border fixed top-0 right-0 z-50 bg-white p-3 pt-4'>
       <div className='flex items-center h-20 justify-between border-b-2'>
         <h1 className='text-2xl ml-2'>Cart</h1>
         <AiOutlineClose size={25} className='cursor-pointer' onClick={() => dispatch({type: 'DRAWER', payload: false})}/>

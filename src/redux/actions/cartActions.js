@@ -1,3 +1,5 @@
+import { toast } from 'react-hot-toast';
+
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
     const product = await fetch('https://fakestoreapi.com/products/'+id)
     .then(res=>res.json())
@@ -11,7 +13,8 @@ export const addToCart = (id, quantity) => async (dispatch, getState) => {
     }})
 
     const {cart: {cartItems}} = getState();
-    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    toast.success("Added to cart"); 
 }
 
 export const removeFromCart = (id) => (dispatch, getState) => {
