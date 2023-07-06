@@ -1,3 +1,8 @@
+# React E-commerce app with React + Redux + Tailwind + FakeStoreAPI
+![](https://github.com/halidunal/react-ecommerce-app/assets/59025659/c47cc7f2-510f-4da5-824b-bbd1c81f8939)
+
+![](https://github.com/halidunal/react-ecommerce-app/assets/59025659/88e96300-83b8-4d9d-8331-f8298d2ec74d)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
